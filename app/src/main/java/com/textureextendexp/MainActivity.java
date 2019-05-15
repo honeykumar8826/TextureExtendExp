@@ -80,8 +80,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 startRecord();
                 mMediaRecorder.start();
-            }
-            else {
+            } else {
                 startPreview();
             }
             Toast.makeText(MainActivity.this, "hi", Toast.LENGTH_SHORT).show();
@@ -293,10 +292,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-           /*         if(mIsRecording || mIsTimelapse) {
-                        mIsRecording = true;
-                        mRecordImageButton.setImageResource(R.mipmap.btn_video_busy);
-                    }*/
                 Toast.makeText(this,
                         "Permission successfully granted!", Toast.LENGTH_SHORT).show();
             } else {
@@ -369,13 +364,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 startRecord();
                 mMediaRecorder.start();
-        /*        if(mIsTimelapse || mIsRecording) {
-                    startRecord();
-                    mMediaRecorder.start();
-                    mChronometer.setBase(SystemClock.elapsedRealtime());
-                    mChronometer.setVisibility(View.VISIBLE);
-                    mChronometer.start();
-                }*/
             } else {
                 if (shouldShowRequestPermissionRationale(Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
                     Toast.makeText(this, "app needs to be able to save videos", Toast.LENGTH_SHORT).show();
@@ -392,13 +380,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             } catch (IOException e) {
                 e.printStackTrace();
             }
-     /*       if(mIsRecording || mIsTimelapse) {
-                startRecord();
-                mMediaRecorder.start();
-                mChronometer.setBase(SystemClock.elapsedRealtime());
-                mChronometer.setVisibility(View.VISIBLE);
-                mChronometer.start();
-            }*/
         }
     }
 
@@ -421,9 +402,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         try {
             if (isVideoRecording) {
                 setupMediaRecorder();
-            }/* else if(mIsTimelapse) {
-                setupTimelapse();
-            }*/
+            }
             SurfaceTexture surfaceTexture = mTextureView.getSurfaceTexture();
             surfaceTexture.setDefaultBufferSize(mPreviewSize.getWidth(), mPreviewSize.getHeight());
             Surface previewSurface = new Surface(surfaceTexture);
